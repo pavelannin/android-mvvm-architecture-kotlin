@@ -14,16 +14,23 @@
  * limitations under the License.
  */
 
-package com.github.anninpavel.androidarchitecture
+package com.github.anninpavel.androidarchitecture.data.mapper
 
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
+import com.github.anninpavel.androidarchitecture.domain.model.User
+import com.github.anninpavel.androidarchitecture.domain.model.UserEntity
 
 /** @author Pavel Annin (https://github.com/anninpavel). */
-class MainActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class UserMapper {
+
+    fun toUserEntity(user: User): UserEntity {
+        return UserEntity(
+            id = user.id,
+            login = user.login,
+            name = user.name,
+            company = user.company,
+            location = user.location,
+            avatarUrl = user.avatarUrl
+        )
     }
 }
